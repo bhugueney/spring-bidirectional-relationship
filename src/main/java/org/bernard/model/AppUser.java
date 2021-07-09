@@ -9,6 +9,7 @@ import java.util.*;
 
 @Entity
 @JsonIdentityInfo(
+        scope = AppUser.class,
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
 public class AppUser {

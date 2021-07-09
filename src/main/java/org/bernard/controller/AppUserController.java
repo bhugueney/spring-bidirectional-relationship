@@ -2,6 +2,7 @@ package org.bernard.controller;
 
 import org.bernard.model.AppUser;
 import org.bernard.model.Item;
+import org.bernard.repository.AppUserRepository;
 import org.bernard.service.AppUserService;
 import org.springdoc.core.converters.models.PageableAsQueryParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/appusers")
 public class AppUserController {
     @Autowired
+    AppUserRepository appUserRepository;
+
+    @Autowired
     AppUserService appUserService;
+
 
     @RequestMapping(method = RequestMethod.GET)
     @PageableAsQueryParam

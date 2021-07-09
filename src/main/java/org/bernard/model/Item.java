@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @JsonIdentityInfo(
+        scope = Item.class,
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
 @Entity

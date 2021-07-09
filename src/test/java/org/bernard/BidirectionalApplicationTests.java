@@ -19,14 +19,16 @@ class BidirectionalApplicationTests {
 	}
 	@Test
 	public void givenBidirectionRelation_whenDeserializingUsingIdentity_thenCorrect() throws JsonProcessingException, IOException {
-		final String json = "{\"id\":2,\"name\":\"bike\",\"appUser\":{\"id\":1,\"name\":\"Bernard\",\"items\":[2]}}";
+		final String json = "{\"id\":1,\"name\":\"bike\",\"appUser\":{\"id\":1,\"name\":\"Bernard\",\"items\":[1]}}";
 
 		final Item item = new ObjectMapper().readerFor(Item.class)
 				.readValue(json);
 
-		assertEquals(2, item.getId());
+		assertEquals(1, item.getId());
 		assertEquals("bike", item.getName());
 		assertEquals("Bernard", item.getAppUser().getName());
+		assertEquals("bike", item.getAppUser().getItems().get(0).getName());
+
 	}
 
 }
